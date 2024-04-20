@@ -1,25 +1,53 @@
-<!DOCTYPE html>
-<html>
-  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-  <!-- we import arjs version without NFT but with marker + location based support -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs>
-      <a-marker preset="hiro">
-        <!-- we use cors proxy to avoid cross-origin problems -->
-        <!--
-          ⚠️⚠️⚠️
-          https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
-          You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
-          ⚠️⚠️⚠️
-        -->
-        <a-entity
-          position="0 0 0"
-          scale="0.05 0.05 0.05"
-          gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-        ></a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+<!DOCTYPE html> <!-- Объявление типа документа: HTML -->
+<html lang="ru"> <!-- Начало HTML-документа с указанием языка (русский) -->
+<style>
+	.arjs-loader {
+	  height: 100%;
+	  width: 100%;
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  background-color: rgba(9, 2, 2, 0.8);
+	  z-index: 9999;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	}
+  
+	.arjs-loader div {
+	  text-align: center;
+	  font-size: 1.25em;
+	  color: white;
+	}
+  </style>
+<head>
+	<meta charset="UTF-8"> <!-- Установка кодировки документа -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Мета-тег для настройки отображения на мобильных устройствах -->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Установка совместимости с браузером Internet Explorer -->
+	<title>AR in Web</title> <!-- Заголовок страницы -->
+</head>
+<body>
+	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> <!-- Подключение библиотеки A-Frame -->
+	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> <!-- Подключение библиотеки AR.js -->
+
+	<!-- Элемент, отображающийся во время загрузки -->
+	<div class="arjs-loader">
+		<div>Loading, please wait...</div>
+	</div>
+
+	<a-scene embedded arjs> <!-- Начало сцены A-Frame с использованием AR.js -->
+		vr-mode-ui="enabled: false;" <!-- Отключаем интерфейс VR -->
+        renderer="logarithmicDepthBuffer: true;" <!-- Настройка рендеринга сцены -->
+        embedded <!-- Встраиваем сцену в документ -->
+        arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;" <!-- Настройки AR -->
+		<a-marker preset="hiro"> <!-- Маркер для распознавания -->
+			<a-entity
+				position="0 0 0" <!-- Позиция объекта -->
+				scale="1 1 1" <!-- Масштабирование объекта -->
+				gltf-model="obj/scene.gltf" <!-- Подключение модели объекта в формате glTF -->
+			></a-entity>
+		</a-marker>
+		<a-entity camera></a-entity> <!-- Элемент камеры для просмотра сцены -->
+	</a-scene>
+</body>
 </html>

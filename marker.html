@@ -1,30 +1,23 @@
-<!DOCTYPE html> <!-- Объявление типа документа: HTML -->
-<html lang="ru"> <!-- Начало HTML-документа с указанием языка (русский) -->
-
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-	<meta charset="UTF-8"> <!-- Установка кодировки документа -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Мета-тег для настройки отображения на мобильных устройствах -->
-	<meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Установка совместимости с браузером Internet Explorer -->
-	<title>AR in Web</title> <!-- Заголовок страницы -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>AR in Web</title>
 </head>
-	
 <body>
-	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> <!-- Подключение библиотеки A-Frame -->
-	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> <!-- Подключение библиотеки AR.js --
-
-	<a-scene embedded arjs> <!-- Начало сцены A-Frame с использованием AR.js -->
-		vr-mode-ui="enabled: false;" <!-- Отключаем интерфейс VR -->
-        renderer="logarithmicDepthBuffer: true;" <!-- Настройка рендеринга сцены -->
-        embedded <!-- Встраиваем сцену в документ -->
-        arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;" <!-- Настройки AR -->
-		<a-marker preset="hiro"> <!-- Маркер для распознавания -->
+	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+	<a-scene embedded arjs>
+		<a-marker preset="hiro">
 			<a-entity
-				position="0 0 0" <!-- Позиция объекта -->
-				scale="1 1 1" <!-- Масштабирование объекта -->
-				gltf-model="scene.gltf" <!-- Подключение модели объекта в формате glTF -->
+				position="0 0 0"
+				scale="1 1 1"
+				gltf-model="scene.gltf"
 			></a-entity>
 		</a-marker>
-		<a-entity camera></a-entity> <!-- Элемент камеры для просмотра сцены -->
+		<a-entity camera></a-entity>
 	</a-scene>
 </body>
 </html>

@@ -1,39 +1,16 @@
 <!DOCTYPE html> <!-- Объявление типа документа: HTML -->
 <html lang="ru"> <!-- Начало HTML-документа с указанием языка (русский) -->
-<style>
-	.arjs-loader {
-	  height: 100%;
-	  width: 100%;
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  background-color: rgba(9, 2, 2, 0.8);
-	  z-index: 9999;
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	}
-  
-	.arjs-loader div {
-	  text-align: center;
-	  font-size: 1.25em;
-	  color: white;
-	}
-  </style>
+
 <head>
 	<meta charset="UTF-8"> <!-- Установка кодировки документа -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Мета-тег для настройки отображения на мобильных устройствах -->
 	<meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Установка совместимости с браузером Internet Explorer -->
 	<title>AR in Web</title> <!-- Заголовок страницы -->
 </head>
+	
 <body>
 	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> <!-- Подключение библиотеки A-Frame -->
-	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> <!-- Подключение библиотеки AR.js -->
-
-	<!-- Элемент, отображающийся во время загрузки -->
-	<div class="arjs-loader">
-		<div>Loading, please wait...</div>
-	</div>
+	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> <!-- Подключение библиотеки AR.js --
 
 	<a-scene embedded arjs> <!-- Начало сцены A-Frame с использованием AR.js -->
 		vr-mode-ui="enabled: false;" <!-- Отключаем интерфейс VR -->
